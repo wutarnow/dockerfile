@@ -1,0 +1,1 @@
+FROM wutarnow/wuta:rsyslog
