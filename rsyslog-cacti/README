@@ -1,1 +1,2 @@
 这个容器镜像提供与cacti软件syslog插件搭配使用的rsyslog服务器，且已做好基本的配置。
+详细的配置方法可以参考cacti的syslog插件的github主页。
