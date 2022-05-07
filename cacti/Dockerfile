@@ -1,5 +1,5 @@
 # Created by wuta on 09/24/2021
-# Update by ChengQing on 04/28/2022
+# Update by ChengQing on 05/07/2022
 FROM rockylinux
 RUN dnf install -y epel-release \
     && dnf install -y cacti \
