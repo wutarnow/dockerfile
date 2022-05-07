@@ -8,9 +8,9 @@ RUN dnf install -y epel-release \
     && dnf clean all
 
 # Add thold, monitor, syslog plugins
-COPY thold /usr/share/cacti/plugins/thold
-COPY monitor /usr/share/cacti/plugins/monitor
-COPY syslog /usr/share/cacti/plugins/syslog
+ADD  plugin_thold-develop.zip /usr/share/cacti/plugins/
+ADD  plugin_monitor-develop.zip /usr/share/cacti/plugins/
+ADD  plugin_syslog-develop.zip /usr/share/cacti/plugins/
 
 RUN touch setup_waiting
 ADD cacti_container.sh /
