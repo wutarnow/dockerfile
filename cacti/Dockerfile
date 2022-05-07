@@ -1,5 +1,5 @@
 # Created by wuta on 09/24/2021
-# Update by ChengQing on 05/07/2022
+# Update by ChengQing on 04/28/2022
 FROM rockylinux
 RUN dnf install -y epel-release \
     && dnf install -y cacti \
@@ -8,9 +8,9 @@ RUN dnf install -y epel-release \
     && dnf clean all
 
 # Add thold, monitor, syslog plugins
-ADD  plugin_thold-develop.zip /usr/share/cacti/plugins/
-ADD  plugin_monitor-develop.zip /usr/share/cacti/plugins/
-ADD  plugin_syslog-develop.zip /usr/share/cacti/plugins/
+COPY thold /usr/share/cacti/plugins/thold
+COPY monitor /usr/share/cacti/plugins/monitor
+COPY syslog /usr/share/cacti/plugins/syslog
 
 RUN touch setup_waiting
 ADD cacti_container.sh /
