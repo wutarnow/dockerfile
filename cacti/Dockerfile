@@ -3,7 +3,6 @@
 FROM rockylinux
 RUN dnf install -y epel-release \
     && dnf install -y cacti \
-    && dnf install -y mariadb-server \
     && dnf install -y cacti-spine \
     && dnf clean all
 
