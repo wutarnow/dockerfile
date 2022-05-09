@@ -6,13 +6,8 @@ if [ -e setup_waiting ];then
 	chmod u+s /usr/bin/spine
 # Set the host timezone
 	ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+	
 # Set database
-	sed -i '/\[mysqld\]/a character-set-server=utf8mb4 \
-collation-server=utf8mb4_unicode_ci' /etc/my.cnf.d/mariadb-server.cnf
-	mysql_install_db --user=mysql
-	sleep 3
-	mysqld_safe --defaults-file=/etc/my.cnf &
-	sleep 3
 	mysql -e "CREATE DATABASE cacti;"
 	mysql cacti </usr/share/doc/cacti/cacti.sql
 	mysql_tzinfo_to_sql /usr/share/zoneinfo | mysql mysql
