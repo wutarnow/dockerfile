@@ -8,9 +8,9 @@ if [ -e setup_waiting ];then
 	ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 	
 # Set database
-	mysql -e "CREATE DATABASE cacti;"
-	mysql cacti </usr/share/doc/cacti/cacti.sql
-	mysql_tzinfo_to_sql /usr/share/zoneinfo | mysql mysql
+	mysql -h cacti-mariadb -proot -e "CREATE DATABASE cacti;"
+	mysql -h cacti-mariadb -proot cacti </usr/share/doc/cacti/cacti.sql
+#	mysql_tzinfo_to_sql /usr/share/zoneinfo | mysql mysql
 	mysql -e "ALTER DATABASE cacti CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
 	mysql -e "GRANT ALL ON cacti.* TO cactiuser@localhost IDENTIFIED BY 'cactiuser';"
 	mysql -e "GRANT SELECT ON mysql.time_zone_name TO cactiuser@localhost;"
