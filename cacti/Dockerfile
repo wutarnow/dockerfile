@@ -26,5 +26,4 @@ RUN	sed -i 's/max_execution_time = 30/max_execution_time = 60/g' /etc/php.ini \
 # set crond (change /5m to /1m)
 RUN	sed -i 's/#\*\/5/*\/1/g' /etc/cron.d/cacti
 
-ADD cacti_container.sh /
-CMD ["bash","cacti_container.sh"]
+CMD ["php-fpm","&&","httpd","-k","start","&&","crond","-n"]
