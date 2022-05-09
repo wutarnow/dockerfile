@@ -1,6 +1,3 @@
-# Set the host timezone
-ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
-  
 # Set database
 # sed -i '/\[mysqld\]/a character-set-server=utf8mb4 \
 # collation-server=utf8mb4_unicode_ci' /etc/my.cnf.d/mariadb-server.cnf
